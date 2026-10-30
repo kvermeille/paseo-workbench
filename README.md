@@ -1,5 +1,7 @@
 # Workbench for Paseo
 
+Vermillion fork: installation stabilization and a client coordinator template. See [fork setup, licensing status and pilot](docs/VERMILLION.md).
+
 **Status: 0.1.0-alpha.30. Validated against installed Paseo 0.12.0 on a disposable daemon (see [docs/TEST_REPORT.md](docs/TEST_REPORT.md)). Not yet run inside the native mobile app.**
 
 Workbench adds a cross-project overview, Coordinators that orchestrate agents, and independent reusable specialist agents (with an opt-in second opinion) to Paseo. It uses native Paseo agents, workspaces, agent labels, plugin settings, and the existing mobile-compatible plugin UI. It does not replace Claude Code's own delegation, create a mission engine, or change Paseo's core.

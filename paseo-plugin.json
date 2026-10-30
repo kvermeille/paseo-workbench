@@ -10,5 +10,15 @@
     "docs/screenshots/launch.png",
     "docs/screenshots/overview.png",
     "docs/screenshots/phone-command.png"
+  ],
+  "build": [
+    [
+      "npm",
+      "ci",
+      "--include=dev",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund"
+    ]
   ]
 }
