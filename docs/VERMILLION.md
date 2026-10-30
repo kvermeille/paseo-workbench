@@ -29,3 +29,15 @@ One coordinator per client is an organizational convention, not enforced access 
 Keep `upstream` pointed at the original repository and `origin` at the fork. Fetch upstream changes, inspect the diff and lockfile changes, and integrate them on a branch. Run `npm test`, then install the exact candidate on a disposable Paseo daemon and inspect status and logs. Only promote a tested commit. Do not automatically update the working installation from upstream main.
 
 The first stabilization branch deliberately retains upstream SDK dependency versions. Runtime compatibility claims must distinguish successful installation from full client-task acceptance testing. No production coordinator or schedule is created by this change.
+
+## Validation: 2026-10-30
+
+Candidate `158997985d72186d3b2f5315a08db430c065cc42`, Paseo desktop/daemon 0.14.0, Node 24.19.0:
+
+- All 43 upstream unit tests passed; TypeScript typechecking passed.
+- The client coordinator Markdown parsed through the existing loader with coordinator-only enabled and read-only disabled.
+- Directory installation compiled and reported `running` on a disposable daemon.
+- Removed the directory installation, then installed the exact candidate through a Git source. The fresh managed checkout ran the manifest preparation, compiled and reported `running`, resolving the original missing type dependency failure.
+- Test daemon used `/tmp/vermillion-paseo-test-home`, localhost port 16868, relay disabled. It was stopped after validation. No production daemon settings, coordinators, schedules or client tasks were changed.
+
+Full client-task behavior, UI interaction and tracker integration remain manual pilot checks. This validation establishes installation and compilation, not production readiness. The test command emitted warnings from an older npm found by nested npm scripts; the preparation step and checks completed successfully.
